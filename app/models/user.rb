@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-
+  has_many :courses
   def self.create_with_omniauth(auth)
   	logger.debug auth.to_s + "-----------------"
     create! do |user|

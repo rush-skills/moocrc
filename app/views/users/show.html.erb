@@ -1,4 +1,3 @@
 <h3>User</h3>
-<% response = HTTParty.get('https://api.coursera.org/api/users/v1/me/enrollments', headers:{ 'Authorization' => "Bearer "+ @user.token.to_s}) %>
-<%= "Bearer "+ @user.token.to_s %>
-<p>Name: <%= @user.name if @user.name %> Enrollments: <%= response.to_s %> </p>
+<%= link_to "Update my courses", update_courses_path(@user) %>
+<p>Name: <%= @user.name if @user.name %> Enrollments: <% @courses.each do |f| %> <%= f.name %> <% end %> </p>
