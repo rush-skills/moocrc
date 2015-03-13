@@ -13,9 +13,9 @@ class UsersController < ApplicationController
   	response['courses'].each do |f|
   		if f and @user.courses.where(:name => f["name"]).empty?
   			course = HTTParty.get('https://api.coursera.org/api/catalog.v1/courses/'.to_s + f["id"].to_s + '?fields=shortDescription,photo,instructor'.to_s )
-  			p course.to_s
         # p 'https://api.coursera.org/api/catalog.v1/courses/'.to_s + f["id"].to_s + '?fields=shortDescription,photo,instructor'.to_s 
-  			Course.create!(:name => f["name"], :user_id => @user.id,:image => f["photo"], :instructor => f["instructor"], :description => f["description"])
+        # p course + "YYYYYYYYYOOOOOOOOOOOOOOOLLLLLLLLLLLLLOOOOOOOOOOOOOOO\n"
+  			Course.create!(:name => f["name"], :user_id => @user.id,:image => f["photo"], :instructor => course["elements"][0]["instructor"], :description => course["elements"][0]["shortDescription"])
   		end
   	end
   	redirect_to @user
