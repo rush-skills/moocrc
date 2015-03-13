@@ -15,7 +15,7 @@ end
 gem 'bootstrap-sass'
 gem 'high_voltage'
 gem 'omniauth'
-gem 'omniauth-google-oauth2'
+gem 'omniauth-coursera'
 group :development do
   gem 'better_errors'
   gem 'hub', :require=>nil
