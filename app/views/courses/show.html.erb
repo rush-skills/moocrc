@@ -3,7 +3,7 @@
 		<div class="col-md-8">
 			<h1><%=@course.name%></h1>
 			<h2><%=@course.instructor%></h2>
-			<p><%=@course.description%></p>
+			<p style="font-size: 20px"><%=@course.description%></p>
 		</div>
 		<div class="col-md-4">
 		<img width="100%" src="<%=@course.image%>">
@@ -21,14 +21,14 @@
 	<%end%>
 </h3>
 <% @deadlines.each do |f| %>
-	<div class="well well-lg">
+	<div class="well well-lg deadline">
 		<%= f.title %> 
 		<% if f.completed %>
 		<span class="deadline-tick"><i class="fa fa-check"></i></span>
 		<% end %>
 		<% if user_signed_in? and not f.completed %> 
 			<% if @course.user == current_user %>
-				<%= link_to complete_deadline_path(f), :class => 'btn btn-success' do %>
+				<%= link_to complete_deadline_path(f), :class => 'btn btn-success cdead' do %>
 					<i class="fa fa-check"></i>
 				<%end%>
 			<%end%>
