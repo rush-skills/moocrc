@@ -1,0 +1,29 @@
+<div class="well well-lg">
+	<h1> <%= @user.name if @user.name %>
+	<div class="pull-right">
+		<% if user_signed_in? %>
+			<% if current_user == @user %>
+				<%= link_to  update_courses_path(@user), :class => 'btn btn-fab btn-success' do %>
+					<i class="fa fa-refresh"></i>
+				<%end%>
+			<% end %>
+		<% end %>
+	</div>
+	</h1>
+	<h2>Courses:</h2> 
+	<div class="row">
+		<% @courses.each do |f| %> 
+			<%= link_to f do %>
+			<div class="col-lg-3 col-md-4 col-sm-6">
+				<div class=" well course-card">
+					<div class="backimage" style="background: url(<%= f.image %>) center center no-repeat;height: 300px">
+					</div><hr>
+						<div class="text-course bottom-align">
+							<%= f.name %> 
+						</div>
+				</div>	
+			</div>
+			<%end%>
+		<% end %>
+	</div>
+</div>

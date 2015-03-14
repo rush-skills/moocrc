@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :correct_user?, :except => [:index]
+  before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
     @users = User.all
@@ -23,6 +22,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @courses = @user.courses
+  end
+
+  def home
+    @user = current_user
     @courses = @user.courses
   end
 end

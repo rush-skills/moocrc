@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/courses/deadline_save/:id' => 'courses#deadline_save'
 
   root to: 'visitors#index'
+
+  get '/home' => 'users#home'
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', :as => :signin
   get '/signout' => 'sessions#destroy', :as => :signout
