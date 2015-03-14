@@ -5,6 +5,7 @@ Rails.application.routes.draw do
  
   get '/courses/create_deadline/:id' => 'courses#create_deadline', :as => :create_deadline
   get '/courses/deadline_save/:id' => 'courses#deadline_save'
+  post '/courses/deadline_save/:id' => 'courses#deadline_save'
 
   get '/courses/deadline_complete/:id' => 'courses#deadline_complete', as: :complete_deadline
   root to: 'visitors#index'
