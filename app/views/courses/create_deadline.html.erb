@@ -1,5 +1,7 @@
-<%= form_for(@deadline, controller: "courses", method: "deadline_save") do |f| %>
+<%= form_for @deadline,:url => url_for(controller: "courses", action: "deadline_save") do |f| %>
 	<%= f.text_field :title %> <br/>
 	<%= f.hidden_field :course_id, value: @course.id %>
 	<%= f.submit "Create" %>
 <% end %>
+<br/>
+<%= link_to "Back", :back %>

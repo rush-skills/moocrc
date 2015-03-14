@@ -5,6 +5,7 @@ Rails.application.routes.draw do
  
   get '/courses/create_deadline/:id' => 'courses#create_deadline', :as => :create_deadline
   get '/courses/deadline_save/:id' => 'courses#deadline_save'
+  post '/courses/deadline_save/:id' => 'courses#deadline_save'
 
   root to: 'visitors#index'
   get '/auth/:provider/callback' => 'sessions#create'
@@ -12,4 +13,6 @@ Rails.application.routes.draw do
   get '/signout' => 'sessions#destroy', :as => :signout
   get '/auth/failure' => 'sessions#failure'
   get '/users/update_courses/:id' => 'users#update_courses', :as => :update_courses
+  get '/courses/completed/' => 'courses#completed', :as => :completed_path
+  get '/courses/failed' => 'courses#failed', :as => :failed_path
 end

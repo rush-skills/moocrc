@@ -1,4 +1,12 @@
-<% @deadlines.each do |f| %>
-	<%= f.title %> | DONE? <br/>
+<br/>
+Welcome to <%= @course.name %> <br/> 
+<br/>
+<% if @deadlines.each %>
+	<% @deadlines.each do |f| %>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= f.title %> | <% if f.completed==1 %> Done! <% elsif f.completed ==-1 %> Failed! <% else %> <% link_to "Completed", completed_path(f) %> | <% link_to "Failed", failed_path(f) %> <% end %> <br/>
+	<% end %>
 <% end %>
+<br/>
 <%= link_to "Add a new deadline", create_deadline_path(@course) %>
+<br/>
+<br/>
