@@ -1,0 +1,5 @@
+<%= form_for(@deadline, controller: "courses", method: "deadline_save") do |f| %>
+	<%= f.text_field :title %> <br/>
+	<%= f.hidden_field :course_id, value: @course.id %>
+	<%= f.submit "Create" %>
+<% end %>

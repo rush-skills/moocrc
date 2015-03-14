@@ -17,7 +17,7 @@
       <tr>
         <td><%= course.description %></td>
         <td><%= course.instructor %></td>
-        <td><%= link_to 'Show', course(:id => cour) %></td>
+        <td><%= link_to 'Show', course, :params => {id: course.id} %></td>
       </tr>
     <% end %>
   </tbody>

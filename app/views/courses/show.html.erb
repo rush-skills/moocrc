@@ -1,2 +1,4 @@
-<h1>Courses#show</h1>
-<p>Find me in app/views/courses/show.html.erb</p>
+<% @deadlines.each do |f| %>
+	<%= f.title %> | DONE? <br/>
+<% end %>
+<%= link_to "Add a new deadline", create_deadline_path(@course) %>
