@@ -1,4 +1,38 @@
+<div class="well" style="padding-bottom: 80px">
+	<div class="row">
+		<div class="col-md-8">
+			<h1><%=@course.name%></h1>
+			<h2><%=@course.instructor%></h2>
+			<p><%=@course.description%></p>
+		</div>
+		<div class="col-md-4">
+		<img width="100%" src="<%=@course.image%>">
+		</div>
+	</div>
+	<hr>
+<h3 style="margin-bottom: 50px">
+	Deadlines 
+	<% if user_signed_in? %> 
+		<% if @course.user == current_user %>
+			<%= link_to create_deadline_path(@course), :class => 'btn btn-fab btn-success pull-right' do %>
+				<i class="fa fa-plus"></i>
+			<%end%>
+		<%end%>
+	<%end%>
+</h3>
 <% @deadlines.each do |f| %>
-	<%= f.title %> | DONE? <br/>
+	<div class="well well-lg">
+		<%= f.title %> 
+		<% if f.completed %>
+		<span class="deadline-tick"><i class="fa fa-check"></i></span>
+		<% end %>
+		<% if user_signed_in? and not f.completed %> 
+			<% if @course.user == current_user %>
+				<%= link_to complete_deadline_path(f), :class => 'btn btn-success' do %>
+					<i class="fa fa-check"></i>
+				<%end%>
+			<%end%>
+		<%end%>
+	</div>
 <% end %>
-<%= link_to "Add a new deadline", create_deadline_path(@course) %>
+</div>

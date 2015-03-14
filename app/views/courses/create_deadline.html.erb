@@ -1,5 +1,8 @@
+<div class="well col-md-6 col-md-offset-3">
+<h2>Add a new deadline for <%=@course.name%></h2><br>
 <%= form_for(@deadline, controller: "courses", method: "deadline_save") do |f| %>
-	<%= f.text_field :title %> <br/>
+	<%= f.text_field :title, :placeholder => "Title for the deadline", :class => "form-control floating-label" %> <br/>
 	<%= f.hidden_field :course_id, value: @course.id %>
-	<%= f.submit "Create" %>
+	<%= f.submit "Create", :class => "btn btn-success" %>
 <% end %>
+</div>

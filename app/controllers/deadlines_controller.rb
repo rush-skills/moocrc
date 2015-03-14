@@ -28,7 +28,7 @@ class DeadlinesController < ApplicationController
 
     respond_to do |format|
       if @deadline.save
-        format.html { redirect_to @deadline, notice: 'Deadline was successfully created.' }
+        format.html { redirect_to @deadline.course, notice: 'Deadline was successfully created.' }
         format.json { render :show, status: :created, location: @deadline }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class DeadlinesController < ApplicationController
   def update
     respond_to do |format|
       if @deadline.update(deadline_params)
-        format.html { redirect_to @deadline, notice: 'Deadline was successfully updated.' }
+        format.html { redirect_to @deadline.course, notice: 'Deadline was successfully updated.' }
         format.json { render :show, status: :ok, location: @deadline }
       else
         format.html { render :edit }

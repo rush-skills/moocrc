@@ -16,4 +16,10 @@ class CoursesController < ApplicationController
   	@deadline.save!
   	redirect_to courses_path
   end
+  def deadline_complete
+    @deadline = Deadline.find(params[:id])
+    @deadline.completed = true
+    @deadline.save!
+    redirect_to @deadline.course
+  end
 end
